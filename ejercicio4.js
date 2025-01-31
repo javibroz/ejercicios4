@@ -73,3 +73,50 @@ const cuentaA = new CuentaBancaria('ES0909',100);
 const cuentaB = new CuentaBancaria('ES8888',200);
 
 CuentaBancaria.hacerTransferencia(cuentaA,cuentaB, 15)
+
+//******************************************************************** */
+
+//  Escribe un programa en JavaScript que cree una clase llamada 'Empleado' con propiedades para
+//      el nombre y el salario mensual. 
+//  Incluye un método para calcular el salario anual en 14 pagas. 
+//  Crea una subclase llamada 'Gerente' que herede de la clase 'Empleado' y 
+//  agrega una propiedad adicional para el departamento del que es jefe.
+//  Extiende el método de cálculo del salario anual para incluir bonificaciones para los gerentes.
+//  Crea dos instancias de la clase 'Gerente' y calcule su salario anual.
+
+class Empleado{
+
+    constructor(nombre,salarioMensual){
+        this.nombre = nombre;
+        this.salarioMensual = salarioMensual;
+    }
+calcularSalarioAnual(){
+    return this.salarioMensual * 14;
+}
+}
+
+class Gerente extends Empleado{
+    constructor(nombre,salarioMensual,departamento,bonificacion){
+        super(nombre,salarioMensual);
+        this.departamento = departamento;
+        this.bonificacion = bonificacion;
+    
+
+    }
+
+    calcularSalarioAnual(){
+        return super.calcularSalarioAnual() + this.bonificacion;
+    }
+
+    
+}
+
+ gerenteContabilidad = new Gerente('Juan',1000,'Contabilidad',6000);
+ gerenteMarketing = new Gerente('Ana',2000,'Marketing',2000);
+
+ console.log(`El gerente de ${gerenteContabilidad.departamento} tiene un salario anual de ${gerenteContabilidad.calcularSalarioAnual()}`);
+ console.log(`La gerente de ${gerenteMarketing.departamento} tiene un salario anual de ${gerenteMarketing.calcularSalarioAnual()}`)
+
+ //******************************************************************************************** */
+
+ 
